@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+/* src/App.css */
+body {
+  background-image: url('https://plus.unsplash.com/premium_photo-1682309650634-363db7521e6d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9zaXRpdmUlMjBmZWVkYmFja3xlbnwwfHwwfHx8MA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+

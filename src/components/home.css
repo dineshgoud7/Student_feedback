@@ -1,0 +1,45 @@
+/* src/components/Home.css */
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://plus.unsplash.com/premium_photo-1682309650634-363db7521e6d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9zaXRpdmUlMjBmZWVkYmFja3xlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Change text color to improve contrast */
+    text-align: center;
+}
+
+.home-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.home-container h1 {
+    font-size: 3rem; /* Adjust font size */
+}
+
+.home-container p {
+    font-size: 1.2rem; /* Add a description */
+}
+
+.home-buttons {
+    margin-top: 20px;
+}
+
+.home-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 5px; /* Add spacing between buttons */
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #45a049;
+}
