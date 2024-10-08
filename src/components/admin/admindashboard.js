@@ -13,6 +13,9 @@ const AdminDashboard = () => {
                 <Link to="/admin/add-course">Add Course</Link>
                 <Link to="/admin/view-students">View Students</Link> {/* New link */}
                 <Link to="/admin/view-faculty">View Faculty</Link>   {/* New link */}
+                <Link to="/admin/feedback-visualization">View Feedback Visualization</Link>
+
+
             </div>
         </div>
     );

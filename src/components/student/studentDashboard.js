@@ -10,6 +10,8 @@ const StudentDashboard = () => {
             <div className="student-links">
                 <Link to="/student/give-feedback">Give Feedback</Link>
                 <Link to="/student/view-feedback">View Feedback</Link>
+                <Link to="/student/view-previous-feedback">View Previous Feedback</Link>
+                <Link to="/student/courses">View Courses</Link> {/* Added link to course list */}
             </div>
         </div>
     );

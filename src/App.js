@@ -16,6 +16,11 @@ import StudentDashboard from './components/student/studentDashboard';
 import GiveFeedback from './components/student/giveFeedback';
 import ViewFaculty from './components/admin/ViewFaculty';
 import ViewStudents from './components/admin/ViewStudents';
+import ViewPreviousFeedback from './components/student/ViewPreviousFeedback'; // Import the new component
+import FeedbackVisualization from './components/admin/FeedbackVisualization';
+import CourseList from './components/student/CourseList'; // Import the CourseList component
+
+
 import './App.css';
 
 const App = () => {
@@ -36,6 +41,8 @@ const App = () => {
                 <Route path="/admin/add-course" element={<AddCourse />} />
                 <Route path="/admin/view-students" element={<ViewStudents />} /> {/* Use element here */}
                 <Route path="/admin/view-faculty" element={<ViewFaculty />} />   {/* Use element here */}
+                <Route path="/admin/feedback-visualization" element={<FeedbackVisualization />} />
+
 
                 {/* Faculty Routes */}
                 <Route path="/faculty" element={<FacultyDashboard />} />
@@ -44,6 +51,10 @@ const App = () => {
                 {/* Student Routes */}
                 <Route path="/student" element={<StudentDashboard />} />
                 <Route path="/student/give-feedback" element={<GiveFeedback />} />
+                <Route path="/student/view-previous-feedback" element={<ViewPreviousFeedback />} /> {/* Added ViewPreviousFeedback route */}
+                <Route path="/student/courses" element={<CourseList />} /> {/* Add this route */}
+
+                
             </Routes>
         </Router>
     );
