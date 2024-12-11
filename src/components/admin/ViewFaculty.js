@@ -1,14 +1,24 @@
-// src/components/Admin/ViewFaculty.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Make sure axios is installed (npm install axios)
 import './ViewFaculty.css'; // Import CSS for styling
 
 const ViewFaculty = () => {
-    const faculty = [
-        { id: 1, name: 'Dr. Alice Johnson', email: 'alice@example.com', department: 'Computer Science' },
-        { id: 2, name: 'Prof. Bob Smith', email: 'bob@example.com', department: 'Mechanical Engineering' },
-        { id: 3, name: 'Dr. Carol White', email: 'carol@example.com', department: 'Electrical Engineering' },
-        { id: 4, name: 'Prof. David Brown', email: 'david@example.com', department: 'Civil Engineering' },
-    ];
+    const [faculty, setFaculty] = useState([]);
+
+    // Fetch faculty data from the backend
+    useEffect(() => {
+        const fetchFaculty = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/get-faculty'); // Update with your API endpoint
+                setFaculty(response.data);
+            } catch (error) {
+                console.error('Error fetching faculty data:', error);
+                alert('Failed to fetch faculty data');
+            }
+        };
+
+        fetchFaculty();
+    }, []);
 
     return (
         <div className="view-faculty">
@@ -23,18 +33,24 @@ const ViewFaculty = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {faculty.map((member) => (
-                        <tr key={member.id}>
-                            <td>{member.id}</td>
-                            <td>{member.name}</td>
-                            <td>{member.email}</td>
-                            <td>{member.department}</td>
+                    {faculty.length > 0 ? (
+                        faculty.map((member) => (
+                            <tr key={member.id}>
+                                <td>{member.id}</td>
+                                <td>{member.name}</td>
+                                <td>{member.email}</td>
+                                <td>{member.department}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4">No faculty data available</td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </table>
         </div>
     );
-}
+};
 
 export default ViewFaculty;

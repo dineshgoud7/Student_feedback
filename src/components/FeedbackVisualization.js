@@ -6,7 +6,7 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } f
 // Register the required chart components
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
-const ViewFeedback = () => {
+const FeedbackVisualization = () => {
     const [facultyName, setFacultyName] = useState('');
     const [facultyList, setFacultyList] = useState([]);
     const [feedbacks, setFeedbacks] = useState([]);
@@ -115,4 +115,4 @@ const ViewFeedback = () => {
     );
 };
 
-export default ViewFeedback;
+export default FeedbackVisualization;

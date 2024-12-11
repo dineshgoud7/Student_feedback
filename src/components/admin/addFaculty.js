@@ -1,19 +1,28 @@
-// src/components/Admin/AddFaculty.js
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddFaculty = () => {
     const [facultyName, setFacultyName] = useState('');
     const [facultyEmail, setFacultyEmail] = useState('');
     const [facultyDepartment, setFacultyDepartment] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Add your logic here to handle form submission (e.g., send data to backend)
-        console.log('Faculty Added:', { facultyName, facultyEmail, facultyDepartment });
-        // Clear form fields after submission
-        setFacultyName('');
-        setFacultyEmail('');
-        setFacultyDepartment('');
+        try {
+            const response = await axios.post('http://localhost:5000/add-faculty', {
+                facultyName,
+                facultyEmail,
+                facultyDepartment,
+            });
+            alert(response.data);
+            // Clear form fields after submission
+            setFacultyName('');
+            setFacultyEmail('');
+            setFacultyDepartment('');
+        } catch (error) {
+            console.error('Error adding faculty:', error);
+            alert('Failed to add faculty');
+        }
     };
 
     return (

@@ -37,6 +37,7 @@ const ViewCourses = () => {
                     <tr>
                         <th style={styles.th}>Course ID</th>
                         <th style={styles.th}>Course Name</th>
+                        <th style={styles.th}>Description</th>
                     </tr>
                 </thead>
                 <tbody>

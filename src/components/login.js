@@ -1,55 +1,90 @@
-// src/components/Login.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Make sure to install axios: npm install axios
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Logic for login can be added here
-        console.log('Login:', { email, password });
+        try {
+            const response = await axios.post('http://localhost:5000/login', { email, password });
+            if (response.data.success) {
+                const role = response.data.role;
+                if (role === 'admin') navigate('/admin');
+                else if (role === 'student') navigate('/student');
+                else if (role === 'faculty') navigate('/faculty');
+            } else {
+                alert('Invalid email or password');
+            }
+        } catch (error) {
+            console.error('Error logging in:', error);
+            alert('Error logging in');
+        }
+    };
+
+    const handleForgotPassword = () => {
+        // Navigate to a password reset page or show a password reset modal
+        navigate('/forgot-password'); // Example route for the forgot password page
     };
 
     const styles = {
         container: {
             maxWidth: '400px',
-            margin: '0 auto',
-            padding: '20px',
-            border: '1px solid #ccc',
-            borderRadius: '8px',
-            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-            backgroundColor: '#f9f9f9',
+            margin: '50px auto',
+            padding: '30px',
+            borderRadius: '10px',
+            boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            fontFamily: 'Arial, sans-serif',
         },
         formGroup: {
-            marginBottom: '15px',
+            marginBottom: '20px',
         },
         label: {
             display: 'block',
-            marginBottom: '5px',
-            fontWeight: 'bold',
+            marginBottom: '8px',
+            fontSize: '14px',
+            color: '#555',
         },
         input: {
             width: '100%',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
+            padding: '10px',
+            fontSize: '14px',
+            borderRadius: '5px',
+            border: '1px solid #ddd',
+            boxSizing: 'border-box',
         },
         button: {
             width: '100%',
-            padding: '10px',
+            padding: '12px',
+            fontSize: '16px',
             backgroundColor: '#007BFF',
             color: '#fff',
             border: 'none',
-            borderRadius: '4px',
+            borderRadius: '5px',
             cursor: 'pointer',
+            transition: 'background-color 0.3s ease',
         },
         buttonHover: {
             backgroundColor: '#0056b3',
         },
         heading: {
             textAlign: 'center',
-            marginBottom: '20px',
+            marginBottom: '30px',
+            fontSize: '24px',
+            fontWeight: 'bold',
+            color: '#333',
+        },
+        forgotPassword: {
+            display: 'block',
+            marginTop: '10px',
+            fontSize: '14px',
+            color: '#007',
+            textAlign: 'center',
+            textDecoration: 'none',
         },
     };
 
@@ -86,6 +121,13 @@ const Login = () => {
                     Login
                 </button>
             </form>
+            <a
+                href="#"
+                style={styles.forgotPassword}
+                onClick={handleForgotPassword}
+            >
+                Forgot Password?
+            </a>
         </div>
     );
 };

@@ -10,6 +10,8 @@ const AdminDashboard = () => {
             <div className="admin-links">
                 <Link to="/admin/add-student">Add Student</Link>
                 <Link to="/admin/add-faculty">Add Faculty</Link>
+                <Link to="/admin/delete-faculty">Delete Faculty</Link>
+
                 <Link to="/admin/add-course">Add Course</Link>
                 <Link to="/admin/view-students">View Students</Link> {/* New link */}
                 <Link to="/admin/view-faculty">View Faculty</Link>   {/* New link */}

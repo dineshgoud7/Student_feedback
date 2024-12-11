@@ -22,6 +22,12 @@ import CourseList from './components/student/CourseList'; // Import the CourseLi
 
 
 import './App.css';
+import DeleteFaculty from './components/admin/DeleteFaculty';
+import ForgotPassword from './components/ForgotPassword';
+import CourseFeedbackForm from './components/CourseFeedbackForm';
+import CourseFeedbackPieChart from './components/CourseFeedbackPieChart';
+import ViewCourses from './components/student/ViewCourses';
+import UpdateFaculty from './components/admin/UpdateFaculty';
 
 const App = () => {
     return (
@@ -38,6 +44,11 @@ const App = () => {
                 <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="/admin/add-student" element={<AddStudent />} />
                 <Route path="/admin/add-faculty" element={<AddFaculty />} />
+                <Route path="/admin/delete-faculty" element={<DeleteFaculty />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/coursefeedback" element={<CourseFeedbackForm />} />
+                <Route path="/viewcoursefeedback" element={<CourseFeedbackPieChart />} />
+                
                 <Route path="/admin/add-course" element={<AddCourse />} />
                 <Route path="/admin/view-students" element={<ViewStudents />} /> {/* Use element here */}
                 <Route path="/admin/view-faculty" element={<ViewFaculty />} />   {/* Use element here */}
@@ -53,7 +64,8 @@ const App = () => {
                 <Route path="/student/give-feedback" element={<GiveFeedback />} />
                 <Route path="/student/view-previous-feedback" element={<ViewPreviousFeedback />} /> {/* Added ViewPreviousFeedback route */}
                 <Route path="/student/courses" element={<CourseList />} /> {/* Add this route */}
-
+                <Route path="/student/courses" element={<ViewCourses />} />
+                <Route path="/admin/update-faculty/:id" element={<UpdateFaculty />} />
                 
             </Routes>
         </Router>
